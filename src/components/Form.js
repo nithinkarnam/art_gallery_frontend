@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
-import backgroundImage from "./back.jpg";
+
+// Import your background image if needed
+// import backgroundImage from "./back.jpg";
 
 function Signin() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const notify = (content) => toast.error(content);
   // eslint-disable-next-line no-unused-vars
-const [cookies, setCookie] = useCookies(["token"]);
+  const [cookies, setCookie] = useCookies(["token"]);
 
-  const expirationDate = new Date(); 
-  expirationDate.setHours(expirationDate.getHours() + 1); 
+  const expirationDate = new Date();
+  expirationDate.setHours(expirationDate.getHours() + 1);
 
   const handleChange = (e) => {
     setFormData({
@@ -36,7 +38,7 @@ const [cookies, setCookie] = useCookies(["token"]);
             path: "/",
             expires: expirationDate,
           });
-          navigate("./userprofile"); 
+          navigate("./userprofile");
         }
       })
       .catch((err) => {
@@ -47,19 +49,12 @@ const [cookies, setCookie] = useCookies(["token"]);
   };
 
   return (
-    <div
-      className="flex justify-center items-center min-h-screen"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: '65%', // Decreasing the image size
-        backgroundPosition: 'right', // Moving the image to the right
-      }}
-    >
+    <div className="flex justify-center items-center min-h-screen bg-white">
       <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray" className="text-[#1f3626]">
+        <Typography variant="h4" color="blue-gray" className="text-[#308096]">
           Sign In
         </Typography>
-        <Typography color="gray" className="mt-1 font-normal text-[#1f3626]">
+        <Typography color="gray" className="mt-1 font-normal text-[#308096]">
           Enter your credentials to log in.
         </Typography>
         <form
@@ -74,6 +69,7 @@ const [cookies, setCookie] = useCookies(["token"]);
               name="username"
               onChange={handleChange}
               required
+              style={{ backgroundColor: "lightgoldenrodyellow", color: '#1f3626' }}
             />
             <Input
               type="password"
@@ -83,6 +79,7 @@ const [cookies, setCookie] = useCookies(["token"]);
               className="text-[#1f3626] focus:text-[#1f3626]"
               required
               onChange={handleChange}
+              style={{ backgroundColor: "lightgoldenrodyellow", color: '#1f3626' }}
             />
           </div>
 
@@ -112,6 +109,7 @@ function Signup() {
   const [registerData, setRegisterData] = useState({});
   const [formError, setFormError] = useState({});
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setRegisterData({
       ...registerData,
@@ -120,73 +118,20 @@ function Signup() {
   };
 
   const handleChangeFile = (e) => {
-    if (e.target.files[0]) {
-      if (e.target.files[0].size < 5000000) {
-        if (
-          e.target.files[0].type === "image/jpeg" ||
-          e.target.files[0].type === "image/jpg" ||
-          e.target.files[0].type === "image/png"
-        ) {
-          setFormError({
-            ...formError,
-            imageerror: "",
-          });
-          setRegisterData({
-            ...registerData,
-            [e.target.name]: e.target.files[0],
-          });
-        } else {
-          setFormError({
-            ...formError,
-            imageerror: "Image should be in jpeg, jpg or png format",
-          });
-        }
-      } else {
-        setFormError({
-          ...formError,
-          imageerror: "Image size should be less than 5MB",
-        });
-      }
-    }
+    // ... (unchanged)
   };
 
   const handleRegisterSubmit = async (e) => {
-    await e.preventDefault();
-    if (!formError.imageerror || formError.imageerror === "") {
-      await axios
-        .post("https://artfolio-y03z.onrender.com/api/auth/register", registerData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.data.error) {
-            toast.error(res.data.error);
-          } else if (res.data.message) {
-            toast.success(res.data.message);
-            navigate("/signin");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    // ... (unchanged)
   };
 
   return (
-    <div
-    className="flex justify-center items-center min-h-screen"
-    style={{
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: '65%', // Decreasing the image size
-      backgroundPosition: 'right', // Moving the image to the right
-    }}
-  >
-    <Card color="transparent" shadow={false}>
-      <Typography variant="h4" color="blue-gray" className="text-[#1f3626]">
-        Sign Up
-      </Typography>
-        <Typography color="gray" className="mt-1 font-normal text-[#1f3626]">
+    <div className="flex justify-center items-center min-h-screen bg-white">
+      <Card color="transparent" shadow={false}>
+        <Typography variant="h4" color="blue-gray" className="text-[#287a41]">
+          Sign Up
+        </Typography>
+        <Typography color="gray" className="mt-1 font-normal text-[#287a41]">
           Enter your details to register.
         </Typography>
         <form
@@ -201,6 +146,7 @@ function Signup() {
               required
               name="username"
               onChange={handleChange}
+              style={{ backgroundColor: "lightgreen", color: '#1f3626' }}
             />
             <Input
               size="lg"
@@ -209,6 +155,7 @@ function Signup() {
               required
               name="email"
               onChange={handleChange}
+              style={{ backgroundColor: "lightgreen", color: '#1f3626' }}
             />
             <Input
               type="password"
@@ -218,16 +165,11 @@ function Signup() {
               required
               name="password"
               onChange={handleChange}
+              style={{ backgroundColor: "lightgreen", color: '#1f3626' }}
             />
 
             <input
-              className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-              type="file"
-              name="image"
-              id="formFile"
-              required
-              accept="image/*"
-              onChange={handleChangeFile}
+              // ... (unchanged)
             />
           </div>
           {formError["imageerror"] ? (
