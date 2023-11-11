@@ -79,7 +79,7 @@ function Uploadpost() {
                 {image ? (
                   <img
                     src={image}
-                    alt="Uploaded"
+                    alt="Upload"
                     className="w-1/2 h-1/2 mx-auto mb-4 object-cover rounded-lg"
                   />
                 ) : (
