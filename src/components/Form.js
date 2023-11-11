@@ -152,7 +152,7 @@ function Signup() {
     await e.preventDefault();
     if (!formError.imageerror || formError.imageerror === "") {
       await axios
-        .post("http://localhost:8080/api/auth/register", registerData, {
+        .post("https://artfolio-y03z.onrender.com/api/auth/register", registerData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
