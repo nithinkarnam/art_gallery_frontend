@@ -41,6 +41,7 @@ The Art Gallery Website is a vibrant platform designed for artists to showcase t
 
 - **Artwork Deletion:**
   - Artists can delete their artworks if needed.
+![image](https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/c9b7d93f-c442-46c2-806b-afff1b3d67d7)
 
 ## 🚀 Technologies Used
 
