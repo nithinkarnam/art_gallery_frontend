@@ -42,11 +42,13 @@ The Art Gallery Website is a vibrant platform designed for artists to showcase t
 - **Artwork Deletion:**
   - Artists can delete their artworks if needed.
 
-# INTERFACE VIEW
-<img width="922" alt="image" src="https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/5a518f5e-7136-467f-89dc-d7a671e535ba">
-<img width="917" alt="image" src="https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/183c97a9-4c65-48e5-a22d-d3c9528a52ec">
-<img width="929" alt="image" src="https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/b62f8dab-e661-4505-9874-6f791a9efb21">
-<img width="891" alt="image" src="https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/0bdb72f7-9125-4dfc-b2de-13146b3ee917">
+## INTERFACE VIEW
+![image](https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/6f2869d7-a8ec-4970-9273-273601623d22)
+![image](https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/2f47854a-d6c7-4175-93a9-626cdef0e93a)
+![image](https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/6b55d776-a2f0-4f1c-ab72-bbd769a79379)
+![image](https://github.com/nithinkarnam/art_gallery_frontend/assets/98379951/6a07a40c-508e-4946-82f3-8d91a00f9fa4)
+
+
 
 
 ## 🚀 Technologies Used
